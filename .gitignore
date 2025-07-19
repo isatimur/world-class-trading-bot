@@ -1,0 +1,164 @@
+# Environment variables
+.env
+.env.local
+.env.production
+.env.test
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+logs/
+trading_agent.log
+
+# Data files
+*.csv
+*.json
+*.pickle
+*.pkl
+data/
+backtest_results/
+auto_training_results/
+strategy_data/
+market_data/
+portfolio_data/
+
+# Strategy results
+strategy_summary_*.json
+equity_curve_*.csv
+backtest_results.csv
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Docker
+.dockerignore
+
+# Temporary files
+*.tmp
+*.temp
+temp/
+tmp/
+
+# API keys and secrets
+secrets/
+keys/
+*.key
+*.pem
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Cache
+.cache/
+cache/
+
+# Coverage reports
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# pyenv
+.python-version
+
+# pipenv
+Pipfile.lock
+
+# PEP 582
+__pypackages__/
+
+# Celery
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+*.sage.py
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# Trading specific
+trading_data/
+market_data/
+portfolio_data/
+strategy_data/
+
+# Backup files
+backup_files/
+
+# Test artifacts
+test_*.py
+*_test.py
+test_results/
+
+# Documentation drafts
+*.md.bak
+docs/drafts/
+
+# Local configuration
+config/local/
+settings/local.py 
