@@ -343,7 +343,7 @@ This trading bot is for **educational and research purposes**. Always do your ow
 ### **Development Setup**
 ```bash
 # Fork the repository
-git clone https://github.com/yourusername/trading-bot.git
+git clone https://github.com/isatimur/trading-bot.git
 cd trading-bot
 
 # Create virtual environment
@@ -378,8 +378,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ### **Getting Help**
 - **Documentation**: Check the [docs/](docs/) directory
-- **Issues**: Report bugs and feature requests on [GitHub Issues](https://github.com/yourusername/trading-bot/issues)
-- **Discussions**: Join the conversation on [GitHub Discussions](https://github.com/yourusername/trading-bot/discussions)
+- **Issues**: Report bugs and feature requests on [GitHub Issues](https://github.com/isatimur/trading-bot/issues)
+- **Discussions**: Join the conversation on [GitHub Discussions](https://github.com/isatimur/trading-bot/discussions)
 - **Examples**: See working examples in the [examples/](examples/) directory
 
 ### **Community**
