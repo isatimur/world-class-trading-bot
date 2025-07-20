@@ -3887,6 +3887,11 @@ dev = [
     { name = "pytest-asyncio" },
 ]
 
+[package.dev-dependencies]
+dev = [
+    { name = "pytest" },
+]
+
 [package.metadata]
 requires-dist = [
     { name = "aiohttp", specifier = ">=3.9.1" },
@@ -3975,6 +3980,9 @@ requires-dist = [
     { name = "yfinance", specifier = ">=0.2.28" },
 ]
 provides-extras = ["ai", "dev"]
+
+[package.metadata.requires-dev]
+dev = [{ name = "pytest", specifier = ">=8.4.1" }]
 
 [[package]]
 name = "typing-extensions"

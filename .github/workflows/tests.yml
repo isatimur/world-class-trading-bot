@@ -29,14 +29,20 @@ jobs:
     - name: Install dependencies
       run: uv sync
     
+    - name: Install package in development mode
+      run: uv pip install -e .
+    
     - name: Run tests
       run: |
-        python tests/test_complete_integration.py
-        python tests/test_bybit_integration.py
-        python tests/test_natural_language_translation.py
-        python tests/test_telegram_bot.py
+        # Set PYTHONPATH to include src directory
+        export PYTHONPATH="${PYTHONPATH}:${GITHUB_WORKSPACE}/src"
+        
+        # Run tests with proper path handling
+        cd ${GITHUB_WORKSPACE}
+        python -m pytest tests/ -v --tb=short
       env:
         GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
         BYBIT_API_KEY: ${{ secrets.BYBIT_API_KEY }}
         BYBIT_API_SECRET: ${{ secrets.BYBIT_API_SECRET }}
-        TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }} 
+        TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+        PYTHONPATH: ${{ github.workspace }}/src 
