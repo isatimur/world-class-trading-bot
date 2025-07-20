@@ -1,0 +1,42 @@
+name: Tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.11, 3.12]
+
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+    
+    - name: Install uv
+      uses: astral-sh/setup-uv@v3
+      with:
+        version: latest
+    
+    - name: Install dependencies
+      run: uv sync
+    
+    - name: Run tests
+      run: |
+        python tests/test_complete_integration.py
+        python tests/test_bybit_integration.py
+        python tests/test_natural_language_translation.py
+        python tests/test_telegram_bot.py
+      env:
+        GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+        BYBIT_API_KEY: ${{ secrets.BYBIT_API_KEY }}
+        BYBIT_API_SECRET: ${{ secrets.BYBIT_API_SECRET }}
+        TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }} 
