@@ -29,17 +29,17 @@ jobs:
     - name: Install dependencies
       run: uv sync
     
+    - name: Install dev dependencies
+      run: uv sync --group dev
+    
     - name: Run tests
       run: |
         # Set PYTHONPATH to include src directory
         export PYTHONPATH="${PYTHONPATH}:${GITHUB_WORKSPACE}/src"
         
-        # Run tests directly
+        # Run tests with pytest
         cd ${GITHUB_WORKSPACE}
-        python tests/test_complete_integration.py
-        python tests/test_bybit_integration.py
-        python tests/test_natural_language_translation.py
-        python tests/test_telegram_bot.py
+        python -m pytest tests/ -v --tb=short
       env:
         GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
         BYBIT_API_KEY: ${{ secrets.BYBIT_API_KEY }}
