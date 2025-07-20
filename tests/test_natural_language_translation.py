@@ -19,8 +19,7 @@ sys.path.insert(0, str(src_path))
 from trading_bot.tools.natural_language_translator import (
     NaturalLanguageTranslator,
     translate_trading_signal,
-    get_market_advice,
-    translate_portfolio_status
+    get_market_advice
 )
 from trading_bot.config.settings import Settings
 
@@ -162,7 +161,7 @@ async def test_portfolio_translation():
         }
         
         # Translate portfolio status
-        summary = await translate_portfolio_status(portfolio_data)
+        summary = await NaturalLanguageTranslator.translate_portfolio_status(portfolio_data)
         
         print("✅ Portfolio translation successful!")
         print(f"\n💼 Portfolio Summary:")

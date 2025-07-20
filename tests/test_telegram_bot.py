@@ -21,6 +21,7 @@ from trading_bot.telegram.telegram_bot import TelegramTradingBot
 from trading_bot.strategies.strategy_manager import StrategyManager
 from trading_bot.strategies import GridStrategy, MeanReversionStrategy
 from trading_bot.config.settings import Settings
+from trading_bot.utils.logging import get_logger
 
 logger = get_logger(__name__)
 
