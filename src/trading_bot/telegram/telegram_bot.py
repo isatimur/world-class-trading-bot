@@ -579,10 +579,12 @@ Use the buttons below to get started!
         logger.info("Starting Telegram Trading Bot...")
         await self.application.initialize()
         await self.application.start()
-        await self.application.run_polling()
+        # Use run_polling with proper async handling
+        await self.application.updater.start_polling()
     
     async def stop(self):
         """Stop the Telegram bot."""
         logger.info("Stopping Telegram Trading Bot...")
+        await self.application.updater.stop()
         await self.application.stop()
         await self.application.shutdown() 

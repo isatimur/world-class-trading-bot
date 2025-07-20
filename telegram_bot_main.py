@@ -185,6 +185,13 @@ async def main():
         logger.info("📱 Starting Telegram bot...")
         await telegram_bot.start()
         
+        # Keep the bot running
+        logger.info("✅ Telegram bot is running. Press Ctrl+C to stop.")
+        
+        # Wait indefinitely (until interrupted)
+        while True:
+            await asyncio.sleep(1)
+        
     except KeyboardInterrupt:
         logger.info("🛑 Received shutdown signal...")
     except Exception as e:
@@ -192,8 +199,11 @@ async def main():
     finally:
         # Cleanup
         logger.info("🧹 Cleaning up...")
-        await telegram_bot.stop()
-        logger.info("✅ Telegram bot stopped")
+        try:
+            await telegram_bot.stop()
+            logger.info("✅ Telegram bot stopped")
+        except Exception as e:
+            logger.error(f"❌ Error stopping Telegram bot: {e}")
 
 
 if __name__ == "__main__":
