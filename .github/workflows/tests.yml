@@ -29,8 +29,10 @@ jobs:
     - name: Install dependencies
       run: uv sync
     
-    - name: Install dev dependencies
-      run: uv sync --group dev
+    - name: Install test dependencies
+      run: |
+        uv add pytest pytest-asyncio pytest-cov --dev
+        uv sync
     
     - name: Run tests
       run: |
