@@ -31,8 +31,8 @@ jobs:
     
     - name: Install test dependencies
       run: |
-        uv add pytest pytest-asyncio pytest-cov --dev
-        uv sync
+        # Install pytest and test dependencies directly with pip
+        pip install pytest pytest-asyncio pytest-cov
     
     - name: Run tests
       run: |
