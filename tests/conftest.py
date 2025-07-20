@@ -6,18 +6,19 @@ This file handles import paths and common test fixtures.
 
 import sys
 from pathlib import Path
+import pytest
+import asyncio
+from unittest.mock import MagicMock
 
 # Add src to path for imports
 src_path = Path(__file__).parent.parent / "src"
 sys.path.insert(0, str(src_path))
 
-# Import common test utilities
-import pytest
-import asyncio
-from unittest.mock import AsyncMock, MagicMock
+# Configure asyncio for pytest
+pytest_plugins = ["pytest_asyncio"]
 
 # Common fixtures
-@pytest.fixture
+@pytest.fixture(scope="session")
 def event_loop():
     """Create an instance of the default event loop for the test session."""
     loop = asyncio.get_event_loop_policy().new_event_loop()
